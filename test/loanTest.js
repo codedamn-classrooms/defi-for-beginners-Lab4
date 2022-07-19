@@ -9,8 +9,15 @@ contract("Loan", (accounts) => {
 });  
 
 it("should not accept lend if not lender", async () => { 
-    await expectRevert( loan.lend({ from: borrower, value: amount }), //2 
-    "only lender can lend" ); 
+    
+    // await expectRevert( loan.lend({ from: borrower, value: amount }), //2 
+    // "only lender can lend" ); 
+
+    try {
+        await loan.lend({ from: borrower, value: amount });
+    } catch (error) {
+        assert(error,"only lender can lend");
+    }
 }); 
     it("should not accept lend amount if not exact amount", async () => { 
         await expectRevert( loan.lend({ from: lender, value: 100 }), //3 
@@ -26,13 +33,23 @@ it("should accept lend amount", async () => {
 }); 
 
 it("should not repay if not borrower", async () => { 
-    await expectRevert( loan.repay({ from: accounts[3], value: amount + interest }), //5 
-    "only borrower can repay" ); 
+    // await expectRevert( loan.repay({ from: accounts[3], value: amount + interest }), //5 
+    // "only borrower can repay" ); 
+    try {
+        await loan.repay({ from: accounts[3], value: amount + interest });
+    } catch (error) {
+        assert(error,"only borrower can repay");
+    }
 });
 
 it("should not repay if not exact amount", async () => { 
-    await expectRevert( loan.repay({ from: borrower, value: 50 }), //6 
-    "borrower need to repay exactly amount + interest" ); 
+    // await expectRevert( loan.repay({ from: borrower, value: 50 }), //6 
+    // "borrower need to repay exactly amount + interest" ); 
+    try {
+        await loan.repay({ from: borrower, value: 50 });
+    } catch (error) {
+        assert(error,"borrower need to repay exactly amount + interest");
+    }
 }); 
 
 it("should not repay of loan has not matured", async () => { 
