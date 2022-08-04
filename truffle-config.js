@@ -1,5 +1,4 @@
-[11:57 AM, 7/19/2022] Harshita: provide link for tokenswap
-[12:16 PM, 7/19/2022] Harshita: module.exports = {
+module.exports = {
   networks: {},
 
   // Set default mocha options here, use special reporters etc.
