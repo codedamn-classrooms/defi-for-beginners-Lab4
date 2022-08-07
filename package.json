@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "lab5",
   "version": "1.0.0",
   "description": "",
@@ -19,3 +20,16 @@
  
   }
 }
+=======
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+>>>>>>> ddf0e9cec15daf6c7451aadd8c0f7d3007ad01e6
