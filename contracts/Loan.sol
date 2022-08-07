@@ -38,7 +38,7 @@ contract Loan {
 
     function repay() external payable {
         require(msg.sender == borrower, " Only borrower can repay");
-        require( msg.value == amount+interest, " borrower needs to repay exactly, amount + interest");
+       require( msg.value == amount+interest, " borrower needs to repay exactly, amount + interest");
 
            changeState(State.CLOSED);
            lender.transfer(amount+interest);
