@@ -19,31 +19,20 @@ contract Loan {
     uint256 public end;
 
     constructor ( uint256 _amount, uint256 _interest, uint256 _duration, address payable _borrower, address payable _lender){
-         
-         amount = _amount;
-         interest = _interest;
-         duration = _duration;
-         borrower = _borrower;
-         lender = _lender;
+        // Set variables here
     }
 
     function lend() external payable {
-           require(msg.sender==lender, " Only lender can lend");
-           require(address(this).balance == amount,"can only lend the exact amount");
-
-           changeState(State.ACTIVE);
-           borrower.transfer(amount);  
+           //Write your code here
 
     }
 
     function repay() external payable {
-        require(msg.sender == borrower, " Only borrower can repay");
-       require( msg.value == amount+interest, " borrower needs to repay exactly, amount + interest");
-
-           changeState(State.CLOSED);
-           lender.transfer(amount+interest);
+           //Write your code here
     }
 
+
+   
     function changeState( State _state) internal{
          require(_state != State.NOT_ACTIVE, "state is already inactive");
          require(_state != state, " transition state cannot be same");
