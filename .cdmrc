@@ -1,1 +1,3 @@
 tabs: ['contracts/Loan.sol']
+terminals: ['yarn install']
+run-button: truffle compile
